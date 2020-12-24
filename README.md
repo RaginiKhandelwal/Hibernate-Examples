@@ -1,1 +1,1 @@
-# Java-TheCoffee
+# Hibernate mapping examples
