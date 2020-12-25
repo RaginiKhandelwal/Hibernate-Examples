@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.websitesadvertisements.Advertisements" table="Advertisements">
+
+<id name="adId" column="adId" >
+<generator class="increment"/>
+</id>
+<property name="brand" column="brand"  />
+<property name="minutes" column="minutes"  /> 
+<set name="websites" cascade="all" table="Websites_Advertisements">
+<key column="ad_Id"></key>
+<many-to-many class="com.websitesadvertisements.Websites" column="website_Id"></many-to-many>
+</set>
+
+</class>
+</hibernate-mapping> 
