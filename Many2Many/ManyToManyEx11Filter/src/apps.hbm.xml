@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.appsappusers.Apps" table="Apps">
+
+<id name="appId" column="appId" >
+<generator class="increment"/>
+</id>
+<property name="appName" column="appName"  />
+ 
+ <set name="appUsers" cascade="all">
+ <key column="app_Id"/>
+ <many-to-many class="com.appsappusers.AppUsers" column="appuser_id"></many-to-many>
+ </set>
+<filter name="appfilter" condition="appName like 'instagram'"></filter>
+</class>
+<filter-def name="appfilter"></filter-def>
+</hibernate-mapping> 
