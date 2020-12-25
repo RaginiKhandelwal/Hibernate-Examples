@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.eventsperformers.Events" table="Events">
+
+<id name="eventId" column="eventId" >
+<generator class="increment"/>
+</id>
+<property name="eventName" column="eventName"  />
+ 
+<set name="performers" cascade="all" table="Events_Performers">
+<key column="event_Id"></key>
+<many-to-many class="com.eventsperformers.Performers" column="perf_Id"></many-to-many>
+</set>
+
+</class>
+</hibernate-mapping> 
