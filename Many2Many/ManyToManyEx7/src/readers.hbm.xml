@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.readersblogs.Readers" table="Readers">
+
+<id name="readerId" column="readerId" >
+<generator class="increment"/>
+</id>
+<property name="readerName" column="readerName"  />
+<property name="comments" column="comments"  />
+ 
+ <set name="blogs" cascade="all" inverse="false" table="Readers_Blogs">
+ <key column="reader_Id"/>
+ <many-to-many class="com.readersblogs.Blogs" column="blog_Id "></many-to-many>
+ </set>
+
+</class>
+</hibernate-mapping> 
