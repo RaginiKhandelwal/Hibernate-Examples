@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.personsskills.Persons" table="Persons">
+
+<id name="personId" column="personId" >
+<generator class="increment"/>
+</id>
+<property name="personName" column="personName"  />
+<property name="age" column="age"  /> 
+ <set name="skills" cascade="all" inverse="false" table="persons_skills">
+ <key column="person_Id"/>
+ <many-to-many class="com.personsskills.Skills" column="skill_Id "></many-to-many>
+ </set>
+
+</class>
+</hibernate-mapping> 
