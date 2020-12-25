@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.moviessuperheros.Movies" table="Movies">
+
+<id name="movieId" column="movieId" >
+<generator class="increment"/>
+</id>
+<property name="movieName" column="movieName"  />
+ 
+ <set name="superheros" cascade="all">
+ <key column="movie_Id"/>
+ <many-to-many class="com.moviessuperheros.SuperHeros" column="hero_Id"></many-to-many>
+ </set>
+
+</class>
+</hibernate-mapping> 
