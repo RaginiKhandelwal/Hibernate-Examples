@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.instructorsclasses.Instructors" table="Instructors">
+
+<id name="instructorId" column="instructorId" >
+<generator class="increment"/>
+</id>
+<property name="instName" column="instName"  />
+ <property name="subject" column="subject"  />
+ <set name="classes" cascade="all" inverse="false" table="instructors_classes">
+ <key column="instructor_Id"/>
+ <many-to-many class="com.instructorsclasses.Classes" column="cls_Id"></many-to-many>
+ </set>
+
+</class>
+</hibernate-mapping> 
